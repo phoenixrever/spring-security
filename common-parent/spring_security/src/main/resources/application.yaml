@@ -1,0 +1,10 @@
+server:
+  port: 8111
+spring:
+  application:
+    name: spring-security
+#  security:
+#    user:
+#      name: "admin"
+#      password: "123456"
+#      roles: "admin"
