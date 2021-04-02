@@ -8,3 +8,22 @@ spring:
 #      name: "admin"
 #      password: "123456"
 #      roles: "admin"
+#  profiles:
+#    active: home
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/guli?serverTimezone=GMT%2B8
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password: 159629zxc
+    hikari:
+      connection-test-query: SELECT 1
+      connection-timeout: 60000
+      idle-timeout: 500000
+      max-lifetime: 540000
+      maximum-pool-size: 12
+      minimum-idle: 10
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
