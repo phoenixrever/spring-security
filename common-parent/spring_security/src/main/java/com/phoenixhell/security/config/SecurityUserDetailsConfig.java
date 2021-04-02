@@ -2,22 +2,17 @@ package com.phoenixhell.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.util.List;
 
 /**
  * @author phoenixhell
  * @create 2021/1/22 0022-下午 1:03
  */
-@Configuration
+//@Configuration
 public class SecurityUserDetailsConfig extends WebSecurityConfigurerAdapter {
     //    @Qualifier("myUserDetailsServiceImpl")
     @Autowired
@@ -43,8 +38,8 @@ public class SecurityUserDetailsConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                     .and()
                 .authorizeRequests()//需要登陆路径request
-                    .antMatchers("/", "/login", "/hello")
-                    .permitAll()//不需要登陆验证就可以访问的路径
+                    .antMatchers("/", "/login", "/hello")//不需要登陆验证就可以访问的路径
+                    .permitAll()
                     .antMatchers("/admin")
                     .hasAuthority("admin")//需要admin权限才能访问
                     .antMatchers("MultiAuthority")
