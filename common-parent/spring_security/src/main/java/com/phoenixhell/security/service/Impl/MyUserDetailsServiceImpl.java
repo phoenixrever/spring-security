@@ -23,7 +23,7 @@ import java.util.List;
  */
 //@Service
 //@Primary
-@Service("userDetailsService")
+//@Service("userDetailsService")
 public class MyUserDetailsServiceImpl  implements UserDetailsService {
     @Autowired
     private UserService userService;

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-//@Component
+
 public class TokenManager {
     //token 过期时间
     private final long tokenExpiration =24*60*60*1000;

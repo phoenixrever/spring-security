@@ -1,6 +1,7 @@
 package com.phoenixhell.security.filter;
 
 import com.phoenixhell.security.security.TokenManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,12 +26,13 @@ public class TokenAuthFilter extends BasicAuthenticationFilter {
     @Resource
     private RedisTemplate redisTemplate;
 
+
     /*
     java默认的在调用子类构造方法前先调用父类的构造方法，
     如果你没有指定调用父类的哪个构造方法，
     那么java默认调用父类无参数的构造方法
     BasicAuthenticationFilter没有无参
-    所以必须实现父类代参数构造方法
+    所以必须实现父类带参数构造方法
     */
     public TokenAuthFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);

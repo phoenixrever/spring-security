@@ -41,7 +41,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private DataSource dataSource;
 
-    // 注册 JdbcTokenRepositoryImpl
+    // 注册 JdbcTokenRepositoryImpl 建表 inert token
     //public class JdbcTokenRepositoryImpl extends JdbcDaoSupport implements PersistentTokenRepository
     @Bean
     public PersistentTokenRepository persistentTokenRepository() throws SQLException {
@@ -81,7 +81,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
                 //开启rememberMe 指定token数据库  由JdbcTokenRepositoryImpl 创建
                 .rememberMe()
                 .rememberMeParameter("remember-me")//form表单中input的remember-me名字 不该的话默认是remember-me
-                .tokenRepository(persistentTokenRepository())//指定token表
+                .tokenRepository(persistentTokenRepository())//指定token表 插入token数据
                 .tokenValiditySeconds(60)//token 有效时长 单位为60秒
                 //通过myUserDetailsServiceImpl查询出user来和token表配对
                 .userDetailsService(userDetailsService);
